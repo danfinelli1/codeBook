@@ -7,6 +7,7 @@ var Schema = mongoose.Schema;
 //the shape of your database entries.
 var RecipesSchema = new Schema({
   title: String,
+  language: String,
   content: String,
   share: Boolean
 });
