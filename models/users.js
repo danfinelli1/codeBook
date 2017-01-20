@@ -5,11 +5,11 @@ var Schema = mongoose.Schema;
 
 //create new instance of the mongoose.schema. the schema takes an object that shows
 //the shape of your database entries.
-var RecipesSchema = new Schema({
-  title: String,
-  content: String,
-  share: Boolean
+var UsersSchema = new Schema({
+  username: String,
+  email: String,
+  password: String
 });
 
 //export our module to use in server.js
-module.exports = mongoose.model('Recipe', RecipesSchema);
+module.exports = mongoose.model('User', UsersSchema);
