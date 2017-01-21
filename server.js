@@ -52,6 +52,30 @@ router.route('/recipes')
     });
   });
 
+router.route('/recipes/:recipe_id')
+  .put(function(req, res) {
+    Recipe.findById(req.params.recipe_id, function(err, recipe) {
+      if (err)
+        res.send(err);
+        (req.body.title) ? recipe.title = req.body.title : null;
+        (req.body.content) ? recipe.content = req.body.content : null;
+        (req.body.language) ? recipe.language = req.body.language : null;
+        recipe.save(function(err){
+          if (err)
+           res.send(err);
+          res.json({ message: 'Recipe has been updated'})
+        });
+    });
+  })
+
+  .delete(function(req, res){
+    Recipe.remove({ _id: req.params.recipe_id }), function(err, recipe) {
+      if (err)
+        res.send(err);
+      res.json({ message: 'Recipe has been deleeted' })
+    }
+  });
+
 app.use('/api', router);
 
 app.listen(port, function() {

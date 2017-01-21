@@ -10,6 +10,8 @@ class RecipeBox extends Component {
     this.state = { data: [] };
     this.loadRecipesFromServer = this.loadRecipesFromServer.bind(this);
     this.handleRecipeSubmit = this.handleRecipeSubmit.bind(this);
+    this.handleRecipeDelete = this.handleRecipeDelete.bind(this);
+    this.handleRecipeUpdate = this.handleRecipeUpdate.bind(this);
   }
   loadRecipesFromServer(recipe){
     axios.get(this.props.url)
@@ -31,6 +33,21 @@ class RecipeBox extends Component {
         this.setState({ data: recipes });
       })
   }
+  handleRecipeDelete(id) {
+    axios.delete('${this.props.url}/${id}')
+      .then(res => {
+        console.log('Recipe deleted');
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
+  handleRecipeUpdate(id, recipe){
+    axios.put('${this.props.url}/${id}', recipe)
+      .catch(err => {
+        console.log(err);
+      })
+  }
   componentDidMount(){
     this.loadRecipesFromServer();
     setInterval(this.loadRecipesFromServer, this.props.pollInterval);
@@ -38,8 +55,11 @@ class RecipeBox extends Component {
   render() {
     return (
       <div style={ style.recipeBox }>
-        <h2>Your Recipes:</h2>
-      <RecipeList data={ this.state.data }/>
+        <h2 style={ style.title }>Your Recipes:</h2>
+      <RecipeList
+        onRecipeDelete={ this.handleRecipeDelete }
+        onRecipeUpdate={ this.handleRecipeUpdate }
+        data={ this.state.data }/>
       <RecipeForm onRecipeSubmit={ this.handleRecipeSubmit} />
       </div>
     )
