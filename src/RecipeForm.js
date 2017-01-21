@@ -21,7 +21,15 @@ class RecipeForm extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    console.log(`Code ${this.state.title} is in "${this.state.language}"`)
+    //TODO check here later for how to format the input string for content
+    let title = this.state.title;
+    let content = this.state.content;
+    let language = this.state.language;
+    if (!title || !content){
+      return;
+    }
+    this.props.onRecipeSubmit({ title: title, content: content, language: language });
+    this.setState({ title: '', content: '', language: '' })
   }
   render() {
     return (

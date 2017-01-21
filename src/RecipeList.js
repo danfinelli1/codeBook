@@ -6,9 +6,9 @@ class RecipeList extends Component {
   render() {
     let recipeNodes = this.props.data.map(recipe => {
       return (
-        <Recipe title={ recipe.title } key={ recipe.id }>
-          { recipe.language }
+        <Recipe title={ recipe.title } key={ recipe['_id'] }>
           { recipe.content }
+          { recipe.language }
         </Recipe>
       )
     })
