@@ -15,14 +15,14 @@ class Recipe extends Component {
     this.deleteRecipe = this.deleteRecipe.bind(this);
     this.updateRecipe = this.updateRecipe.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.hanldeContentChange = this.handleContentChange.bind(this);
-    this.hanldeLanguageChange = this.handleLanguageChange.bind(this);
+    this.handleContentChange = this.handleContentChange.bind(this);
+    this.handleLanguageChange = this.handleLanguageChange.bind(this);
     this.handleRecipeUpdate = this.handleRecipeUpdate.bind(this);
   }
   updateRecipe(e) {
     e.preventDefault();
     //brings the updated file when clicked
-    this.setState({ toBeUpdated: !this.state.tobeUpdated });
+    this.setState({ toBeUpdated: !this.state.toBeUpdated });
   }
   handleRecipeUpdate(e) {
     e.preventDefault();
@@ -31,7 +31,7 @@ class Recipe extends Component {
     let content = (this.state.content) ? this.state.content : null;
     let language = (this.state.language) ? this.state.language : null;
     let recipe = { title: title, content: content, language: language }
-    this.props.onRcipeUpdate(id, recipe);
+    this.props.onRecipeUpdate(id, recipe);
     this.setState({
       toBeUpdated: !this.state.toBeUpdated,
       title: '',
@@ -61,7 +61,7 @@ class Recipe extends Component {
   render() {
     return (
       <div style={ style.recipe }>
-        <h3>{this.props.title}</h3>
+        <h2>{this.props.title}</h2>
         <h3>{this.props.language}</h3>
         <span dangerouslySetInnerHTML={ this.rawMarkup() } />
         <a style={ style.updateLink } href="#" onClick={ this.updateRecipe }>edit</a>

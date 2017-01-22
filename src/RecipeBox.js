@@ -13,10 +13,10 @@ class RecipeBox extends Component {
     this.handleRecipeDelete = this.handleRecipeDelete.bind(this);
     this.handleRecipeUpdate = this.handleRecipeUpdate.bind(this);
   }
-  loadRecipesFromServer(recipe){
+  loadRecipesFromServer(){
     axios.get(this.props.url)
       .then(res => {
-        this.setState({ data: res.data})
+        this.setState({ data: res.data});
       })
   }
   handleRecipeSubmit(recipe){
@@ -25,16 +25,13 @@ class RecipeBox extends Component {
     let newRecipes = recipes.concat([recipe]);
     this.setState({ data: newRecipes })
     axios.post(this.props.url, recipe)
-      .then(res => {
-        this.setState({ data: res });
-      })
       .catch(err => {
         console.error(err);
         this.setState({ data: recipes });
-      })
+      });
   }
   handleRecipeDelete(id) {
-    axios.delete('${this.props.url}/${id}')
+    axios.delete(`${this.props.url}/${id}`)
       .then(res => {
         console.log('Recipe deleted');
       })
@@ -43,7 +40,7 @@ class RecipeBox extends Component {
       });
   }
   handleRecipeUpdate(id, recipe){
-    axios.put('${this.props.url}/${id}', recipe)
+    axios.put(`${this.props.url}/${id}`, recipe)
       .catch(err => {
         console.log(err);
       })

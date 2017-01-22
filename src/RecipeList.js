@@ -8,12 +8,12 @@ class RecipeList extends Component {
       return (
         <Recipe
           title={ recipe.title }
+          language={ recipe.language }
           uniqueID={ recipe['_id'] }
           onRecipeDelete={ this.props.onRecipeDelete }
           onRecipeUpdate={ this.props.onRecipeUpdate }
           key={ recipe['_id'] }>
           { recipe.content }
-          { recipe.language }
         </Recipe>
       )
     })

@@ -9,8 +9,8 @@ var app = express();
 var router = express.Router();
 
 var port = process.env.API_PORT || 3001;
-mongoose.connect('mongodb://localhost/codeBook');
-//now we should configure the API to use bodyParser and look for JSON data in the request body
+mongoose.connect('mongodb://localhost/solslaptopiswarm');
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
