@@ -38,7 +38,7 @@ class RecipeForm extends Component {
     this.setState({ title: '', content: '', language: '' })
   }
   render() {
-    var options = {
+    let options = {
 			lineNumbers: true,
 			readOnly: this.state.readOnly,
 			mode: this.state.mode
