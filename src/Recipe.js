@@ -43,6 +43,8 @@ class Recipe extends Component {
     e.preventDefault();
     let id = this.props.uniqueID;
     this.props.onRecipeDelete(id);
+    console.log('this is the id: ' + id);
+    console.log('this is this: ' + this);
     console.log('recipe deleted');
   }
   handleContentChange(e){
@@ -65,7 +67,7 @@ class Recipe extends Component {
         <h3>{this.props.language}</h3>
         <span dangerouslySetInnerHTML={ this.rawMarkup() } />
         <a style={ style.updateLink } href="#" onClick={ this.updateRecipe }>edit</a>
-        <a style={ style.updateLink } href="#" onClick={ this.deleteRecipe }>delete</a>
+        <a style={ style.deleteLink } href="#" onClick={ this.deleteRecipe }>delete</a>
         { (this.state.toBeUpdated)
           ? (<form onSubmit={ this.handleRecipeUpdate }>
               <input

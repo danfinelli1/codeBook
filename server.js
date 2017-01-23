@@ -9,6 +9,7 @@ var app = express();
 var router = express.Router();
 
 var port = process.env.API_PORT || 3001;
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/solslaptopiswarm');
 
 app.use(bodyParser.urlencoded({ extended: true }));
