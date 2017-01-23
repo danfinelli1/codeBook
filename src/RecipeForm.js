@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import style from './style';
+import Codemirror from 'react-codemirror';
+import codeStyle from 'codemirror/mode/javascript/javascript';
+require('codemirror/mode/xml/xml');
+require('codemirror/mode/markdown/markdown');
+require('codemirror/lib/codemirror.css');
 
 class RecipeForm extends Component {
+
   constructor(props) {
     super(props);
     this.state = { title: '', content: '', language: 'JavaScript' };
@@ -32,20 +38,33 @@ class RecipeForm extends Component {
     this.setState({ title: '', content: '', language: '' })
   }
   render() {
+    var options = {
+			lineNumbers: true,
+			readOnly: this.state.readOnly,
+			mode: this.state.mode
+		};
     return (
       <form style={ style.recipeForm } onSubmit={ this.handleSubmit }>
+        <div>
+  				<Codemirror ref="editor" value={this.state.code} onChange={this.updateCode} options={options} interact={this.interact} />
+  				<div style={{ marginTop: 10 }}>
+  					<select onChange={this.changeMode} value={this.state.mode}>
+  						<option value="markdown">Markdown</option>
+  						<option value="javascript">JavaScript</option>
+  					</select>
+  					<button onClick={this.toggleReadOnly}>Toggle read-only mode (currently {this.state.readOnly ? 'on' : 'off'})</button>
+  				</div>
+  			</div>
+
         <input
           type='text'
           placeholder='Title'
           style={ style.recipeFormTitle}
           value={ this.state.title}
           onChange={ this.handleTitleChange }/>
-        <textarea
-          type='text'
-          placeholder='Copy your code here...'
-          style={ style.recipeFormContent}
-          value={ this.state.content }
-          onChange={ this.handleContentChange } />
+
+
+
         <select
           type='text'
           style={ style.recipeFormLanguage }
