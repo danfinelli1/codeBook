@@ -41,6 +41,7 @@ router.route('/recipes')
   })
 
   .post(function(req, res){
+    console.log(req);
     var recipe = new Recipe();
     recipe.title = req.body.title;
     recipe.content = req.body.content;

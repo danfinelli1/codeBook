@@ -14,11 +14,14 @@ class RecipeForm extends Component {
     this.setState({ title: e.target.value });
   }
   handleContentChange(e) {
+    console.log("changed!!")
     this.setState({ content: e.target.value });
   }
   handleLanguageChange(e) {
     this.setState({ language: e.target.value });
   }
+
+
   handleSubmit(e) {
     e.preventDefault();
     //TODO check here later for how to format the input string for content
@@ -28,24 +31,25 @@ class RecipeForm extends Component {
     if (!title || !content){
       return;
     }
+
     this.props.onRecipeSubmit({ title: title, content: content, language: language });
     this.setState({ title: '', content: '', language: '' })
   }
   render() {
     return (
-      <form style={ style.recipeForm } onSubmit={ this.handleSubmit }>
+      <form style={ style.recipeForm } onSubmit={ this.handleSubmit } >
+        <textarea
+          type='text'
+          className="codemirror-textarea"
+          style={ style.recipeFormContent}
+          value={ this.state.content }
+          onChange={ this.handleContentChange } />
         <input
           type='text'
           placeholder='Title'
           style={ style.recipeFormTitle}
           value={ this.state.title}
           onChange={ this.handleTitleChange }/>
-        <textarea
-          type='text'
-          placeholder='Copy your code here...'
-          style={ style.recipeFormContent}
-          value={ this.state.content }
-          onChange={ this.handleContentChange } />
         <select
           type='text'
           style={ style.recipeFormLanguage }
