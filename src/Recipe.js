@@ -46,13 +46,14 @@ class Recipe extends Component {
       language: ''
     })
   }
+
   deleteRecipe(e){
     e.preventDefault();
+    console.log(this)
     let id = this.props.uniqueID;
     this.props.onRecipeDelete(id);
     console.log('this is the id: ' + id);
-    console.log('this is this: ' + this);
-    console.log('recipe deleted');
+    console.log(this.props)
   }
   handleContentChange(e) {
     let mode = e;
@@ -88,8 +89,6 @@ class Recipe extends Component {
           ? (<form onSubmit={ this.handleRecipeUpdate }>
 
               <Codemirror ref="editor" value={this.state.content} onChange={this.handleContentChange} options={options} interact={this.interact} />
-              <div style={{ marginTop: 10 }}>
-              </div>
 
               <input
                 type='text'

@@ -70,12 +70,16 @@ router.route('/recipes/:recipe_id')
   })
 
   .delete(function(req, res){
-    Recipe.remove({ _id: req.params.recipe_id }), function(err, recipe) {
+    Recipe.findById(req.params.recipe_id, function(err, recipe) {
       if (err)
         res.send(err);
-      res.json({ message: 'Recipe has been deleeted' })
-    }
-  });
+        recipe.remove(function(err){
+          if (err)
+           res.send(err);
+          res.json({ message: 'Recipe has been removed'})
+        });
+    });
+  })
 
 app.use('/api', router);
 

@@ -52,11 +52,8 @@ class RecipeForm extends Component {
 		};
     return (
       <form style={ style.recipeForm } onSubmit={ this.handleSubmit }>
-        <div>
-  				<Codemirror ref="editor" value={this.state.content} onChange={this.handleContentChange} options={options} interact={this.interact} />
-  				<div style={{ marginTop: 10 }}>
-  				</div>
-  			</div>
+
+  			<Codemirror ref="editor" value={this.state.content} onChange={this.handleContentChange} options={options} interact={this.interact} />
 
         <input
           type='text'
