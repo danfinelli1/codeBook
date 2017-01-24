@@ -45,7 +45,6 @@ class SignupForm extends Component {
           style={ style.signupFormUsername}
           value={ this.state.username}
           required='required'
-          autofocus
           onChange={ this.handleUsernameChange }/>
 
         <input

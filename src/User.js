@@ -5,14 +5,12 @@ import LoginForm from './LoginForm';
 import style from './style';
 
 class User extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { data: [] };
-  //   this.loadRecipesFromServer = this.loadRecipesFromServer.bind(this);
-  //   this.handleRecipeSubmit = this.handleRecipeSubmit.bind(this);
-  //   this.handleRecipeDelete = this.handleRecipeDelete.bind(this);
-  //   this.handleRecipeUpdate = this.handleRecipeUpdate.bind(this);
-  // }
+  constructor(props){
+    super(props);
+    this.state= {
+      toBeSignedup: false,
+    };
+  }
 
   render() {
     return (

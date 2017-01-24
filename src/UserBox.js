@@ -10,12 +10,12 @@ class UserBox extends Component {
  }
  render() {
  return (
- <div style={ style.userBox }>
- <h1>Code Book</h1>
- <SignupForm />
- <LoginForm />
- </div>
- )
+   <div style={ style.userBox }>
+   <h1>Code Book</h1>
+   <SignupForm />
+   <LoginForm />
+   </div>
+   )
  }
 }
 export default UserBox;
