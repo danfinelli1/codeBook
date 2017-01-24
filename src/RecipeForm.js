@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import style from './style';
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/theme/monokai.css';
 import Codemirror from 'react-codemirror';
-import codeStyle from 'codemirror/mode/javascript/javascript';
-require('codemirror/mode/xml/xml');
-require('codemirror/mode/markdown/markdown');
-require('codemirror/lib/codemirror.css');
+import 'codemirror/mode/javascript/javascript';
+import 'codemirror/mode/xml/xml';
+import 'codemirror/mode/markdown/markdown';
+
+
+var defaults = {
+	markdown: '# Heading\n\nSome **bold** and _italic_ text\nBy [Jed Watson](https://github.com/JedWatson)',
+	javascript: 'var component = {\n\tname: "react-codemirror",\n\tauthor: "Jed Watson",\n\trepo: "https://github.com/JedWatson/react-codemirror"\n};',
+  mode: 'hey!'
+};
 
 class RecipeForm extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { title: '', content: '', language: 'JavaScript' };
+    this.state = { title: '', content: '', language: 'JavaScript', mode:'' };
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleContentChange = this.handleContentChange.bind(this);
     this.handleLanguageChange = this.handleLanguageChange.bind(this);
@@ -20,7 +28,11 @@ class RecipeForm extends Component {
     this.setState({ title: e.target.value });
   }
   handleContentChange(e) {
-    this.setState({ content: e.target.value });
+    let mode = e;
+    this.setState({
+        mode: mode,
+        content: mode
+     });
   }
   handleLanguageChange(e) {
     this.setState({ language: e.target.value });
@@ -46,13 +58,13 @@ class RecipeForm extends Component {
     return (
       <form style={ style.recipeForm } onSubmit={ this.handleSubmit }>
         <div>
-  				<Codemirror ref="editor" value={this.state.code} onChange={this.updateCode} options={options} interact={this.interact} />
+  				<Codemirror ref="editor" value={this.state.content} onChange={this.handleContentChange} options={options} interact={this.interact} />
   				<div style={{ marginTop: 10 }}>
-  					<select onChange={this.changeMode} value={this.state.mode}>
+            
+  					{/* <select onChange={this.changeMode} value={this.state.mode}>
   						<option value="markdown">Markdown</option>
   						<option value="javascript">JavaScript</option>
-  					</select>
-  					<button onClick={this.toggleReadOnly}>Toggle read-only mode (currently {this.state.readOnly ? 'on' : 'off'})</button>
+  					</select> */}
   				</div>
   			</div>
 
@@ -62,9 +74,6 @@ class RecipeForm extends Component {
           style={ style.recipeFormTitle}
           value={ this.state.title}
           onChange={ this.handleTitleChange }/>
-
-
-
         <select
           type='text'
           style={ style.recipeFormLanguage }

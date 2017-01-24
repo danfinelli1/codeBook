@@ -22,7 +22,7 @@ const style = {
   },
   recipeForm: {
     margin:'10px',
-    display:'flex',
+    display:'block',
     flexFlow:'row wrap',
     justifyContent:'space-between'
   },

@@ -65,7 +65,7 @@ class Recipe extends Component {
       <div style={ style.recipe }>
         <h2>{this.props.title}</h2>
         <h3>{this.props.language}</h3>
-        <span dangerouslySetInnerHTML={ this.rawMarkup() } />
+        <pre><span dangerouslySetInnerHTML={ this.rawMarkup() } /></pre>
         <a style={ style.updateLink } href="#" onClick={ this.updateRecipe }>edit</a>
         <a style={ style.deleteLink } href="#" onClick={ this.deleteRecipe }>delete</a>
         { (this.state.toBeUpdated)
