@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import style from './style';
 import marked from 'marked';
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/theme/monokai.css';
+import Codemirror from 'react-codemirror';
+import 'codemirror/mode/javascript/javascript';
+import 'codemirror/mode/xml/xml';
+import 'codemirror/mode/markdown/markdown';
 
 class Recipe extends Component {
   constructor(props){
     super(props);
     this.state= {
       toBeUpdated: false,
-      title: '',
-      content: '',
-      language: ''
+      title: this.props.title,
+      content: this.props.children,
+      language: this.props.languauge,
+      mode: 'javascript'
     };
     //binding all of the functions to this class
     this.deleteRecipe = this.deleteRecipe.bind(this);
@@ -47,8 +54,12 @@ class Recipe extends Component {
     console.log('this is this: ' + this);
     console.log('recipe deleted');
   }
-  handleContentChange(e){
-    this.setState({ content: e.target.value });
+  handleContentChange(e) {
+    let mode = e;
+    this.setState({
+        mode: mode,
+        content: mode
+     });
   }
   handleTitleChange(e){
     this.setState({ title: e.target.value});
@@ -61,6 +72,11 @@ class Recipe extends Component {
     return { __html: rawMarkup };
   }
   render() {
+    let options = {
+      lineNumbers: true,
+      mode: 'javascript',
+      theme: 'monokai'
+    };
     return (
       <div style={ style.recipe }>
         <h2>{this.props.title}</h2>
@@ -70,18 +86,17 @@ class Recipe extends Component {
         <a style={ style.deleteLink } href="#" onClick={ this.deleteRecipe }>delete</a>
         { (this.state.toBeUpdated)
           ? (<form onSubmit={ this.handleRecipeUpdate }>
+
+              <Codemirror ref="editor" value={this.state.content} onChange={this.handleContentChange} options={options} interact={this.interact} />
+              <div style={{ marginTop: 10 }}>
+              </div>
+
               <input
                 type='text'
                 placeholder='Update title'
                 style={ style.recipeFormTitle}
                 value={ this.state.title}
                 onChange={ this.handleTitleChange }/>
-              <textarea
-                type='text'
-                placeholder='Update your code here...'
-                style={ style.recipeFormContent}
-                value={ this.state.content }
-                onChange={ this.handleContentChange } />
               <select
                 type='text'
                 style={ style.recipeFormLanguage }
