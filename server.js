@@ -81,6 +81,18 @@ router.route('/recipes/:recipe_id')
     });
   })
 
+  router.route('/signup')
+    .get(function(req, res){
+        res.send('signup coming soon');
+  });
+
+  router.route('/login')
+    .get(function(req, res){
+        res.send('login coming soon');
+  });
+
+
+
 app.use('/api', router);
 
 app.listen(port, function() {
