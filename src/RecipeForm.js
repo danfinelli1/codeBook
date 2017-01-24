@@ -8,17 +8,12 @@ import 'codemirror/mode/xml/xml';
 import 'codemirror/mode/markdown/markdown';
 
 
-var defaults = {
-	markdown: '# Heading\n\nSome **bold** and _italic_ text\nBy [Jed Watson](https://github.com/JedWatson)',
-	javascript: 'var component = {\n\tname: "react-codemirror",\n\tauthor: "Jed Watson",\n\trepo: "https://github.com/JedWatson/react-codemirror"\n};',
-  mode: 'hey!'
-};
 
 class RecipeForm extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { title: '', content: '', language: 'JavaScript', mode:'' };
+    this.state = { title: '', content: '', language: 'JavaScript', mode:'javascirpt' };
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleContentChange = this.handleContentChange.bind(this);
     this.handleLanguageChange = this.handleLanguageChange.bind(this);
@@ -52,19 +47,14 @@ class RecipeForm extends Component {
   render() {
     let options = {
 			lineNumbers: true,
-			readOnly: this.state.readOnly,
-			mode: this.state.mode
+			mode: 'javascript',
+      theme: 'monokai'
 		};
     return (
       <form style={ style.recipeForm } onSubmit={ this.handleSubmit }>
         <div>
   				<Codemirror ref="editor" value={this.state.content} onChange={this.handleContentChange} options={options} interact={this.interact} />
   				<div style={{ marginTop: 10 }}>
-            
-  					{/* <select onChange={this.changeMode} value={this.state.mode}>
-  						<option value="markdown">Markdown</option>
-  						<option value="javascript">JavaScript</option>
-  					</select> */}
   				</div>
   			</div>
 
