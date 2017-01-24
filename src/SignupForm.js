@@ -44,7 +44,7 @@ class SignupForm extends Component {
           placeholder='Username'
           style={ style.signupFormUsername}
           value={ this.state.username}
-          required ='required'
+          required='required'
           autofocus
           onChange={ this.handleUsernameChange }/>
 
@@ -53,7 +53,7 @@ class SignupForm extends Component {
           placeholder='Email'
           style={ style.signupFormEmail}
           value={ this.state.email}
-          required ='required'
+          required='required'
           onChange={ this.handleEmailChange }/>
 
         <input
@@ -61,7 +61,7 @@ class SignupForm extends Component {
           placeholder='Password'
           style={ style.signupFormPassword}
           value={ this.state.password}
-          required ='required'
+          required='required'
           onChange={ this.handlePasswordChange }/>
 
         <input

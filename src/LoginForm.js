@@ -12,7 +12,7 @@ class LoginForm extends Component {
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
+  
   handleUsernameChange(e) {
     this.setState({ username: e.target.value });
   }
@@ -44,7 +44,7 @@ class LoginForm extends Component {
           placeholder='Username'
           style={ style.loginFormUsername}
           value={ this.state.username}
-          required ='required'
+          required='required'
           autofocus
           onChange={ this.handleUsernameChange }/>
 
@@ -53,7 +53,7 @@ class LoginForm extends Component {
           placeholder='Email'
           style={ style.loginFormEmail}
           value={ this.state.email}
-          required ='required'
+          required='required'
           onChange={ this.handleEmailChange }/>
 
         <input
@@ -61,7 +61,7 @@ class LoginForm extends Component {
           placeholder='Password'
           style={ style.loginFormPassword}
           value={ this.state.password}
-          required ='required'
+          required='required'
           onChange={ this.handlePasswordChange }/>
 
         <input

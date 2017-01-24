@@ -4,6 +4,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var Recipe = require('./model/recipes');
+var User = require('./model/users');
 
 var app = express();
 var router = express.Router();
@@ -81,12 +82,12 @@ router.route('/recipes/:recipe_id')
     });
   })
 
-router.route('/signup')
+router.route('user/signup')
   .get(function(req, res){
       res.render('')
     });
 
-router.route('/login')
+router.route('user/login')
   .get(function(req, res){
       res.send('login coming soon')
     });
