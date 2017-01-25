@@ -31,7 +31,6 @@ class RecipeBox extends Component {
       });
   }
   handleRecipeDelete(id) {
-    console.log("deleting", this.props.url)
     axios.delete(`${this.props.url}/${id}`)
       .then(res => {
         console.log('Recipe deleted');

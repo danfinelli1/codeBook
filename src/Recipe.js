@@ -49,11 +49,8 @@ class Recipe extends Component {
 
   deleteRecipe(e){
     e.preventDefault();
-    console.log(this)
     let id = this.props.uniqueID;
     this.props.onRecipeDelete(id);
-    console.log('this is the id: ' + id);
-    console.log(this.props)
   }
   handleContentChange(e) {
     let mode = e;
