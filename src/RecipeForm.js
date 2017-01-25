@@ -13,7 +13,7 @@ class RecipeForm extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { title: '', content: '', language: 'JavaScript', mode:'javascirpt' };
+    this.state = { title: '', content: '', language: '', mode:'javascirpt' };
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleContentChange = this.handleContentChange.bind(this);
     this.handleLanguageChange = this.handleLanguageChange.bind(this);
@@ -34,6 +34,7 @@ class RecipeForm extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
+    //TODO check here later for how to format the input string for content
     let title = this.state.title.trim();
     let content = this.state.content.trim();
     let language = this.state.language.trim();
@@ -60,15 +61,12 @@ class RecipeForm extends Component {
           style={ style.recipeFormTitle}
           value={ this.state.title}
           onChange={ this.handleTitleChange }/>
-        <select
+        <input
           type='text'
+          placeholder='Language'
           style={ style.recipeFormLanguage }
           value={ this.state.language }
-          onChange={ this.handleLanguageChange }>
-            <option value="JavaScript">JavaScript</option>
-            <option value="Ruby">Ruby</option>
-            <option value="Python">Python</option>
-        </select>
+          onChange={ this.handleLanguageChange }/>
         <input
           type='submit'
           style={ style.recipeFormPost }

@@ -43,7 +43,12 @@ const style = {
     borderRadius:'3px'
   },
   recipeFormLanguage: {
-//TODO
+    flex:'4',
+    minWidth:'100px',
+    margin:'3px',
+    padding:'0 10px',
+    height:'40px',
+    borderRadius:'3px'
   },
   recipeFormPost: {
     minWidth:'75px',
