@@ -96,15 +96,12 @@ class Recipe extends Component {
                 style={ style.recipeFormTitle}
                 value={ this.state.title}
                 onChange={ this.handleTitleChange }/>
-              <select
-                type='text'
-                style={ style.recipeFormLanguage }
-                value={ this.state.language }
-                onChange={ this.handleLanguageChange }>
-                  <option value="JavaScript">JavaScript</option>
-                  <option value="Ruby">Ruby</option>
-                  <option value="Python">Python</option>
-              </select>
+                <input
+                  type='text'
+                  placeholder='Update language'
+                  style={ style.recipeFormLanguage }
+                  value={ this.state.language }
+                  onChange={ this.handleLanguageChange }/>
               <input
                 type='submit'
                 style={ style.recipeFormPost }
