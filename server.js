@@ -3,7 +3,10 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+
 var Recipe = require('./model/recipes');
+var User = require('./model/users');
 
 var app = express();
 var router = express.Router();
@@ -14,6 +17,12 @@ mongoose.connect('mongodb://localhost/solslaptopiswarm');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(session({
+  saveUninitialized: true,
+  resave: true,
+  secret: 'SuperSecretCookie',
+  cookie: { maxAge: 30 * 60 * 1000 }
+}));
 
 //To prevent errors from Cross Origin Resource Sharing, we will set our headers to allow CORS with middleware like so:
 app.use(function(req, res, next) {
@@ -81,16 +90,36 @@ router.route('/recipes/:recipe_id')
     });
   })
 
-  router.route('/signup')
-    .get(function(req, res){
-        res.send('signup coming soon');
-  });
 
-  router.route('/login')
-    .get(function(req, res){
-        res.send('login coming soon');
-  });
+router.route('/users')
+  .post(function(req, res){
+    console.log(req.body)
+    User.createSecure(req.body.email, req.body.password, function (err, newUser) {
+      req.session.userId = newUser._id;
+      res.json();
+   });
+ });
 
+router.route('/sessions')
+  .post(function(req, res){
+    User.authenticate(req.body.email, req.body.password, function (err, loggedInUser) {
+     if (err){
+       console.log('authentication error: ', err);
+       res.status(500).send();
+     } else {
+       console.log('setting sesstion user id ', loggedInUser._id);
+       req.session.userId = loggedInUser._id;
+       res.json();
+     }
+  });
+});
+
+router.route('/profile')
+  .get(function(req, res){
+    User.findOne({_id: req.session.userId}, function (err, currentUser) {
+      res.json()
+      });
+  });
 
 
 app.use('/api', router);

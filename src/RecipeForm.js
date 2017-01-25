@@ -34,7 +34,6 @@ class RecipeForm extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    //TODO check here later for how to format the input string for content
     let title = this.state.title.trim();
     let content = this.state.content.trim();
     let language = this.state.language.trim();

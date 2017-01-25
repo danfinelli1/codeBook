@@ -15,7 +15,7 @@ class Recipe extends Component {
       toBeUpdated: false,
       title: this.props.title,
       content: this.props.children,
-      language: this.props.languauge,
+      language: this.props.language,
       mode: 'javascript'
     };
     //binding all of the functions to this class
