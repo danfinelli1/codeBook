@@ -1,8 +1,4 @@
 const style = {
-  userBox: {
-
-
-  },
   recipeBox: {
     width:'80vw',
     margin:'0 auto',

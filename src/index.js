@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import RecipeBox from './RecipeBox';
-import User from './User';
+import UserBox from './UserBox';
 
 ReactDOM.render(
   <RecipeBox
@@ -12,7 +12,7 @@ ReactDOM.render(
 
 
 ReactDOM.render(
-  <User
-    url='http://localhost:3001/api/user' />,
+  <UserBox
+    url='http://localhost:3001/api/users' />,
   document.getElementById('navbar')
 );

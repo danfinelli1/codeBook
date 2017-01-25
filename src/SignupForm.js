@@ -26,17 +26,19 @@ class SignupForm extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    //TODO check here later for how to format the input string for content
     let username = this.state.username.trim();
     let email = this.state.email.trim();
     let password = this.state.password.trim();
-
+    if (!username || !email){
+      return;
+    }
     this.props.onSignupSubmit({ username: username, email: email, password: password });
     this.setState({ username: '', email: '', password: '' })
   }
   render() {
 
     return (
+      
       <form style={ style.signupForm } onSubmit={ this.handleSubmit }>
 
         <input

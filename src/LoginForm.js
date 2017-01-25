@@ -40,14 +40,6 @@ class LoginForm extends Component {
       <form style={ style.loginForm } onSubmit={ this.handleSubmit }>
 
         <input
-          type='text'
-          placeholder='Username'
-          style={ style.loginFormUsername}
-          value={ this.state.username}
-          required='required'
-          onChange={ this.handleUsernameChange }/>
-
-        <input
           type='email'
           placeholder='Email'
           style={ style.loginFormEmail}

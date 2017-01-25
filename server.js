@@ -3,6 +3,8 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+
 var Recipe = require('./model/recipes');
 var User = require('./model/users');
 
@@ -82,12 +84,20 @@ router.route('/recipes/:recipe_id')
     });
   })
 
-router.route('user/signup')
+router.route('/users')
+  .post(function(req, res){
+    User.createSecure(req.body.email, req.body.password, function (err, user) {
+     res.json(user);
+   });
+ });
+
+
+router.route('/users/signup')
   .get(function(req, res){
-      res.render('')
+      res.render('sign up coming soon')
     });
 
-router.route('user/login')
+router.route('/users/login')
   .get(function(req, res){
       res.send('login coming soon')
     });
