@@ -38,7 +38,7 @@ class SignupForm extends Component {
   render() {
 
     return (
-      
+
       <form style={ style.signupForm } onSubmit={ this.handleSubmit }>
 
         <input

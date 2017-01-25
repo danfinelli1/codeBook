@@ -39,6 +39,7 @@ class LoginForm extends Component {
     return (
       <form style={ style.loginForm } onSubmit={ this.handleSubmit }>
 
+
         <input
           type='email'
           placeholder='Email'
