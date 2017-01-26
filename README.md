@@ -3,8 +3,8 @@
 MERN stack application designed to store your favorite code.
 
 #Wireframes
-[I'm an inline-style link](https://www.docdroid.net/FfW8I7l/codebook.pdf.html)
-![alt tag](http://docdro.id/FfW8I7l)
+[Click here to see Wireframe PDF.](https://www.docdroid.net/FfW8I7l/codebook.pdf.html)
+![alt tag](http://i.imgur.com/33MD5xJ.png)
 
 
 #System dependencies
