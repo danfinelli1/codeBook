@@ -2,8 +2,8 @@
 ##Code Book
 MERN stack application designed to store your favorite code.
 
-#Wireframes
-[Click here to see Wireframe PDF.](https://www.docdroid.net/FfW8I7l/codebook.pdf.html)
+#Wireframes, ERD and User Stories
+[Click here to see a better image.](https://www.docdroid.net/FfW8I7l/codebook.pdf.html)
 ![alt tag](http://i.imgur.com/33MD5xJ.png)
 
 
