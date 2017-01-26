@@ -1,2 +1,2 @@
 ##Code Book
-MERN stack application designed to store your favorite code by language.
+MERN stack application designed to store your favorite code.
