@@ -3,14 +3,15 @@
 MERN stack application designed to store your favorite code.
 
 #Wireframes
-![alt tag](http://i.imgur.com/pkXuHcT.png)
+[I'm an inline-style link](https://www.docdroid.net/FfW8I7l/codebook.pdf.html)
+![alt tag](http://docdro.id/FfW8I7l)
 
 
 #System dependencies
 
   "dependencies": 
     "axios": "^0.15.3",
-    "bcrypt": "^1.0.2",
+    "bcrypt": "^1.0.2",cdcdscsccd
     "body-parser": "^1.16.0",
     "express": "^4.14.0",
     "express-session": "^1.15.0",
