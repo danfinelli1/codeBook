@@ -4,9 +4,15 @@ const style = {
     margin:'0 auto',
     fontFamily:'Helvetica, sans-serif'
   },
+  logo: {
+    fontSize:'2rem'
+  },
+  code: {
+    color:'red'
+  },
   title: {
     textAlign:'center',
-    textTransform:'uppercase'
+    fontSize:'1.5rem'
   },
   recipeList: {
     border:'1px solid #f1f1f1',
@@ -66,12 +72,18 @@ const style = {
   updateLink: {
     textDecoration:'none',
     paddingRight:'15px',
-    fontSize:'.7rem'
+    fontSize:'.7rem',
+    paddingLeft:'15px',
+    marginRight:'5px',
+    border:'1px solid #2F76BD'
+
   },
   deleteLink: {
     textDecoration:'none',
     paddingRight:'15px',
+    paddingLeft:'15px',
     fontSize:'.7rem',
+    border:'1px solid red',
     color:'red'
   }
 }

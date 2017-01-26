@@ -3,7 +3,6 @@ import axios from 'axios';
 import RecipeList from './RecipeList';
 import RecipeForm from './RecipeForm';
 import style from './style';
-
 class RecipeBox extends Component {
   constructor(props) {
     super(props);
@@ -52,7 +51,8 @@ class RecipeBox extends Component {
   render() {
     return (
       <div style={ style.recipeBox }>
-        <h2 style={ style.title }>Your Recipes:</h2>
+        <pre><h1 style={ style.logo }><span style={ style.code }>Code</span>Book</h1></pre>
+        <h2 style={ style.title }>RECIPES:</h2>
       <RecipeList
         onRecipeDelete={ this.handleRecipeDelete.bind(this) }
         onRecipeUpdate={ this.handleRecipeUpdate }
