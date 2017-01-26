@@ -5,7 +5,8 @@ MERN stack application designed to store your favorite code.
 #Wireframes, ERD and User Stories
 [Click here to see a better image.](https://www.docdroid.net/FfW8I7l/codebook.pdf.html)
 ![alt tag](http://i.imgur.com/33MD5xJ.png)
-
+![alt tag](http://i.imgur.com/5IxBgsk.jpg)
+![alt tag](http://i.imgur.com/7sEgKbq.png)
 
 #System dependencies
 
